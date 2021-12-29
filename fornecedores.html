@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta lang="pt-br" />
+	<meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+	<title>ASN Software</title>
+	<link rel="icon" type="image/png" href="images/asn-logotipo.png" />
+
+	<!-- FONTE UBUNTU: -->
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+	<!-- CSS: -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/jquery.mask.js"></script>
+	<script src="js/formats-mask-jquery.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<nav>
+			<ul>
+				<li>
+					<a href="#">
+						<span class="icon"> <img src="images/asn-logotipo.png" width="48" /> </span>
+						<span class="title"> ASN Software </span>
+					</a>						
+				</li>
+
+				<li>
+					<a href="painel.html" title="Painel">
+						<span class="icon"> <img src="icons/icon-painel.png" /> </span>
+						<span class="title"> Painel </span>
+					</a>
+				</li>
+
+				<li class="withSubmenu">
+					<a href="#" title="Cadastros">
+						<span class="icon"> <img src="icons/icon-cadastros.png" /> </span>
+						<span class="title"> Cadastros </span>
+						<img src="icons/icon-arrow-left.png" />
+					</a>
+
+					<ul class="submenu">
+						<li>
+							<a href="clientes.html" title="Clientes">
+								<span class="icon"> <div class="img"></div> </span>
+								<span class="title"> Clientes </span>
+							</a>
+						</li>
+
+						<li class="active">
+							<a href="fornecedores.html" title="Fornecedores">
+								<span class="icon"> <div class="img"></div> </span>
+								<span class="title"> Fornecedores </span>
+							</a>
+						</li>
+
+						<li>
+							<a href="vendedores.html" title="Vendedores">
+								<span class="icon"> <div class="img"></div> </span>
+								<span class="title"> Vendedores </span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+                <li>
+					<a href="configuracoes.html" title="Configurações">
+						<span class="icon"> <img src="icons/icon-configuracoes.png" /> </span>
+						<span class="title"> Configurações </span>
+					</a>
+				</li>
+
+				<li>
+					<a href="index.html" title="Sair">
+						<span class="icon"> <img src="icons/icon-sair.png" /> </span>
+						<span class="title"> Sair </span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="user"> Usuário </div>
+			</div>
+
+			<div class="content">
+
+				<img src="icons/icon-add.png" class="addNew"/>
+
+				<div class="title">Fornecedores</div>
+
+				<div class="search">
+					<form method="GET" action="">
+
+						<input type="hidden" name="report-mode">
+
+						<div class="group">
+							<label>
+								<span>Código:</span>
+								<input type="text" name="id" data-format-mask="number-int"/>
+							</label>
+						</div>
+
+						<div class="group">
+							<label>
+								<span>Nome / Razão:</span>
+								<input type="text" name="nome-razao" />
+							</label>
+
+							<label>
+								<span>Nome fantasia / Apelido:</span>
+								<input type="text" name="nome-fantasia-apelido" />
+							</label>
+						</div>
+
+						<div class="group">
+							<label>
+								<span>Tipo:</span>
+								<select name="tipo">
+									<option value="0"></option>
+									<option value="1">PF</option>
+									<option value="2">PJ</option>
+								</select>
+							</label>
+						</div>
+
+						<div class="group">
+							<label>
+								<span>RG:</span>
+								<input type="text" name="rg" data-format-mask="rg" />
+							</label>
+							
+							<label>
+								<span>CPF:</span>
+								<input type="text" name="cpf" data-format-mask="cpf" />
+							</label>
+						</div>
+
+						<div class="group">
+							<label>
+								<span>CNPJ:</span>
+								<input type="text" name="cnpj" data-format-mask="cnpj" />
+							</label>
+						</div>
+
+						<div class="btns">
+							<input type="button" value="Buscar"          name="buscar"          class="btn-standard" />
+							<input type="button" value="Gerar relatório" name="gerar-relatorio" class="btn-standard" />
+						</div>
+
+					</form>
+				</div>
+
+				<div class="data-table">
+					<table>
+						<tr>
+							<th>Cód.</th>
+							<th>Nome / Razão</th>
+							<th>Nome fantasia / Apelido</th>
+							<th>CRT</th>
+							<th>Tipo</th>
+							<th style="display: none;">RG</th>
+							<th style="display: none;">CPF</th>
+							<th style="display: none;">CNPJ</th>
+							<th>Contribuinte</th>
+							<th style="display: none;">E-mail</th>
+							<th>Telefone</th>
+							<th>Celular</th>
+							<th style="display: none;">Observação</th>
+							<th style="display: none;">CEP</th>
+							<th style="display: none;">Número</th>
+							<th style="display: none;">Endereço</th>
+							<th style="display: none;">Estado</th>
+							<th style="display: none;">Cidade</th>
+							<th style="display: none;">Bairro</th>
+							<th style="display: none;">País</th>
+							<th>Ações</th>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td>João Silva</td>
+							<td>JS Frutas</td>
+							<td>1</td>
+							<td>PF</td>
+							<td style="display: none;" data-format-mask="rg">1265498755</td>
+							<td style="display: none;" data-format-mask="cpf">65165887945</td>
+							<td style="display: none;" data-format-mask="cnpj"></td>
+							<td>SIM</td>
+							<td style="display: none;">jsfrutas@email.com</td>
+							<td>(75)98888-8888</td>
+							<td>(75)3631-0000</td>
+							<td style="display: none;">Alguma observação sobre a JS Frutas.</td>
+							<td style="display: none;">44444-444</td>
+							<td style="display: none;">852</td>
+							<td style="display: none;">Rua Aberto Silva</td>
+							<td style="display: none;">29</td>
+							<td style="display: none;">2928703</td>
+							<td style="display: none;">Centro</td>
+							<td style="display: none;">Brasil</td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>2</td>
+							<td>Beltrano de Tal</td>
+							<td>Beltranol Soluções</td>
+							<td>1</td>
+							<td>PF</td>
+							<td style="display: none;" data-format-mask="rg">8485269522</td>
+							<td style="display: none;" data-format-mask="cpf">55565455589</td>
+							<td style="display: none;" data-format-mask="cnpj"></td>
+							<td>NÃO</td>
+							<td style="display: none;">beltranol@email.com</td>
+							<td>(75)97777-7777</td>
+							<td>(75)3631-1111</td>
+							<td style="display: none;"></td>
+							<td style="display: none;">55555-555</td>
+							<td style="display: none;">256 A</td>
+							<td style="display: none;">Rua Padre Anchieta</td>
+							<td style="display: none;">32</td>
+							<td style="display: none;">3205101</td>
+							<td style="display: none;">Águas Claras</td>
+							<td style="display: none;">Brasil</td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>3</td>
+							<td>Maria Silva</td>
+							<td>Distribuidora MS</td>
+							<td>3</td>
+							<td>PJ</td>
+							<td style="display: none;" data-format-mask="rg"></td>
+							<td style="display: none;" data-format-mask="cpf"></td>
+							<td style="display: none;" data-format-mask="cnpj">12494718000160</td>
+							<td>SIM</td>
+							<td style="display: none;">distribuidorams@email.com</td>
+							<td>(75)95555-5555</td>
+							<td>(75)3631-2222</td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>4</td>
+							<td>Fulana de Tal</td>
+							<td>FT Embalagens</td>
+							<td>2</td>
+							<td>PF</td>
+							<td style="display: none;" data-format-mask="rg">8233245610</td>
+							<td style="display: none;" data-format-mask="cpf">02156544432</td>
+							<td style="display: none;" data-format-mask="cnpj"></td>
+							<td>SIM</td>
+							<td style="display: none;">ftembalagens@email.com</td>
+							<td>(75)94444-4444</td>
+							<td>(75)3631-3333</td>
+							<td style="display: none;">Alguma observação sobre a FT Ebalagens.</td>
+							<td style="display: none;">88888-888</td>
+							<td style="display: none;">400</td>
+							<td style="display: none;">Rua José Queiroz Pinto</td>
+							<td style="display: none;">29</td>
+							<td style="display: none;">2927408</td>
+							<td style="display: none;">Andaiá</td>
+							<td style="display: none;">Brasil</td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>5</td>
+							<td>Cicrano de Tal</td>
+							<td>Cicosméticos</td>
+							<td>2</td>
+							<td>PJ</td>
+							<td style="display: none;" data-format-mask="rg"></td>
+							<td style="display: none;" data-format-mask="cpf"></td>
+							<td style="display: none;" data-format-mask="cnpj">64590629000111</td>
+							<td>SIM</td>
+							<td style="display: none;">cicosméticos@email.com</td>
+							<td>(75)93333-3333</td>
+							<td>(75)3631-4444</td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td style="display: none;"></td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="confirmModal">
+					<div class="content-modal">
+						<div class="title-modal"></div>
+						<div class="text-modal"></div>
+						
+						<div class="btns-modal">
+							<button type="button" class="cancelBtn-modal">Cancelar</button>
+							<button type="button" class="confirmBtn-modal"></button>
+						</div>
+						
+						<span class="id-modal"   style="display: none;"></span>
+						<span class="nome-modal" style="display: none;"></span>
+					</div>
+				</div>
+
+				<div class="editOrNewModal modal">
+					<div class="content-modal">
+						<form method="GET" action="">
+
+							<div class="title-form">Fornecedor</div>
+
+							<input type="hidden" name="id" data-format-mask="number-int"/>
+
+							<div class="group">
+								<label>
+									<span class="idfornecedor">Código: 3</span>
+								</label>
+							</div>
+	
+							<div class="group">
+								<label>
+									<span>Nome / Razão:</span>
+									<input type="text" name="nome-razao" maxlength="200" />
+								</label>
+	
+								<label>
+									<span>Nome fantasia / Apelido:</span>
+									<input type="text" name="nome-fantasia-apelido" maxlength="200" />
+								</label>
+							</div>
+	
+							<div class="group">
+								<label>
+									<span>CRT (fixo):</span>
+									<select name="crt">
+										<option value="0"></option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</label>
+
+								<label>
+									<span>Tipo (fixo):</span>
+									<select name="tipo">
+										<option value="0"></option>
+										<option value="1">PF</option>
+										<option value="2">PJ</option>
+									</select>
+								</label>
+							</div>
+	
+							<div class="group">
+								<label>
+									<span>RG:</span>
+									<input type="text" name="rg" data-format-mask="rg" />
+								</label>
+								
+								<label>
+									<span>CPF:</span>
+									<input type="text" name="cpf" data-format-mask="cpf" />
+								</label>
+							</div>
+	
+							<div class="group">
+								<label>
+									<span>CNPJ:</span>
+									<input type="text" name="cnpj" data-format-mask="cnpj" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Contribuinte (fixo):</span>
+									<select name="contribuinte">
+										<option value="0"></option>
+										<option value="1">SIM</option>
+										<option value="2">NÃO</option>
+									</select>
+								</label>
+								
+								<label>
+									<span>E-mail:</span>
+									<input type="email" name="email" maxlength="50" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Telefone:</span>
+									<input type="text" name="telefone" data-format-mask="phone" />
+								</label>
+
+								<label>
+									<span>Celular:</span>
+									<input type="text" name="celular" data-format-mask="cellphone" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Observação:</span>
+									<textarea name="observacao" maxlength="50"></textarea>
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>CEP:</span>
+									<input type="text" name="cep" data-format-mask="cep" />
+								</label>
+
+								<label>
+									<span>Número:</span>
+									<input type="text" name="numero" maxlength="50" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label style="flex: 5;">
+									<span>Endereço:</span>
+									<input type="text" name="endereco" maxlength="50" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Estado (c/ padrão):</span>
+									<select name="estado">
+										<option value="0"></option>
+										<option value="29">Bahia (BA)</option>
+										<option value="32">Espírito Santo (ES)</option>
+									</select>
+								</label>
+								
+								<label>
+									<span>Cidade (c/ padrão):</span>
+									<select name="cidade">
+										<option value="0"></option>
+										<option value="2909802">Cruz das Almas</option>
+										<option value="2928703">Santo Antônio de Jesus</option>
+										<option value="2911600">Governador Mangabeira</option>
+										<option value="2927408">Salvador</option>
+										<option value="2910800">Feira de Santana</option>
+										<option value="3205101">Viana</option>
+									</select>
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Bairro:</span>
+									<input type="text" name="bairro" maxlength="50" />
+								</label>
+
+								<label>
+									<span>País:</span>
+									<input type="text" name="pais" maxlength="50" />
+								</label>
+							</div>
+	
+							<div class="btns">
+								<input type="button" value="Cancelar"       class="btn-cancel" />
+								<input type="button" value="Salvar/Alterar" class="btn-standard" />
+							</div>
+	
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+            <div style="color: #eee;">_</div>
+		</div>
+	</div>
+    
+	<script src="js/script.js"></script>
+	<script src="js/fornecedores.js"></script>
+
+</body>
+</html>

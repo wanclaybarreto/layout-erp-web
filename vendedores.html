@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta lang="pt-br" />
+	<meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+	<title>ASN Software</title>
+	<link rel="icon" type="image/png" href="images/asn-logotipo.png" />
+
+	<!-- FONTE UBUNTU: -->
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+	<!-- CSS: -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/jquery.mask.js"></script>
+	<script src="js/formats-mask-jquery.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<nav>
+			<ul>
+				<li>
+					<a href="#">
+						<span class="icon"> <img src="images/asn-logotipo.png" width="48" /> </span>
+						<span class="title"> ASN Software </span>
+					</a>						
+				</li>
+
+				<li>
+					<a href="painel.html" title="Painel">
+						<span class="icon"> <img src="icons/icon-painel.png" /> </span>
+						<span class="title"> Painel </span>
+					</a>
+				</li>
+
+				<li class="withSubmenu">
+					<a href="#" title="Cadastros">
+						<span class="icon"> <img src="icons/icon-cadastros.png" /> </span>
+						<span class="title"> Cadastros </span>
+						<img src="icons/icon-arrow-left.png" />
+					</a>
+
+					<ul class="submenu">
+						<li>
+							<a href="clientes.html" title="Clientes">
+								<span class="icon"> <div class="img"></div> </span>
+								<span class="title"> Clientes </span>
+							</a>
+						</li>
+
+						<li>
+							<a href="fornecedores.html" title="Fornecedores">
+								<span class="icon"> <div class="img"></div> </span>
+								<span class="title"> Fornecedores </span>
+							</a>
+						</li>
+
+						<li class="active">
+							<a href="vendedores.html" title="Vendedores">
+								<span class="icon"> <div class="img"></div> </span>
+								<span class="title"> Vendedores </span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="configuracoes.html" title="Configurações">
+						<span class="icon"> <img src="icons/icon-configuracoes.png" /> </span>
+						<span class="title"> Configurações </span>
+					</a>
+				</li>
+
+				<li>
+					<a href="index.html" title="Sair">
+						<span class="icon"> <img src="icons/icon-sair.png" /> </span>
+						<span class="title"> Sair </span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="user"> Usuário </div>
+			</div>
+
+			<div class="content">
+
+				<img src="icons/icon-add.png" class="addNew"/>
+
+				<div class="title">Vendedores</div>
+
+				<div class="search">
+					<form method="GET" action="">
+
+						<input type="hidden" name="report-mode">
+
+						<div class="group">
+							<label>
+								<span>Código:</span>
+								<input type="text" name="id" data-format-mask="number-int"/>
+							</label>
+						</div>
+
+						<div class="group">
+							<label>
+								<span>Nome:</span>
+								<input type="text" name="nome" />
+							</label>
+
+							<label>
+								<span>Comissão:</span>
+								<input type="text" name="comissao" data-format-mask="percent" />
+							</label>
+						</div>
+
+						<div class="btns">
+							<input type="button" value="Buscar"          name="buscar"          class="btn-standard" />
+							<input type="button" value="Gerar relatório" name="gerar-relatorio" class="btn-standard" />
+						</div>
+
+					</form>
+				</div>
+
+				<div class="data-table">
+					<table>
+						<tr>
+							<th>Cód.</th>
+							<th>Nome</th>
+							<th>Comissão</th>
+							<th>Ações</th>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td>João Silva</td>
+							<td data-format-mask="percent">1,30</td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>2</td>
+							<td>Beltrano de Tal</td>
+							<td data-format-mask="percent">2.40</td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>3</td>
+							<td>Maria Silva</td>
+							<td data-format-mask="percent">2,00</td>
+							<td>
+								<img src="icons/icon-edit.png" class="alter" />
+								<img src="icons/icon-delete.png" class="delete" />
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="confirmModal">
+					<div class="content-modal">
+						<div class="title-modal"></div>
+						<div class="text-modal"></div>
+						
+						<div class="btns-modal">
+							<button type="button" class="cancelBtn-modal">Cancelar</button>
+							<button type="button" class="confirmBtn-modal"></button>
+						</div>
+						
+						<span class="id-modal"   style="display: none;"></span>
+						<span class="nome-modal" style="display: none;"></span>
+					</div>
+				</div>
+
+				<div class="editOrNewModal modal">
+					<div class="content-modal">
+						<form method="GET" action="">
+
+							<div class="title-form">Vendedor</div>
+
+							<input type="hidden" name="id" data-format-mask="number-int"/>
+
+							<div class="group">
+								<label>
+									<span class="idvendedor">Código: 3</span>
+								</label>
+							</div>
+	
+							<div class="group">
+								<label>
+									<span>Nome:</span>
+									<input type="text" name="nome" maxlength="50" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Comissão:</span>
+									<input type="text" name="comissao" maxlength="255" data-format-mask="percent" />
+								</label>
+							</div>
+
+							<div class="group">
+								<label>
+									<span>Senha:</span>
+									<input type="text" name="senha" maxlength="255" />
+								</label>
+
+								<label>
+									<span>Confirmar senha:</span>
+									<input type="text" name="senha-confirm" maxlength="255" />
+								</label>
+							</div>
+	
+							<div class="btns">
+								<input type="button" value="Cancelar"       class="btn-cancel" />
+								<input type="button" value="Salvar/Alterar" class="btn-standard" />
+							</div>
+	
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+            <div style="color: #eee;">_</div>
+		</div>
+	</div>
+    
+	<script src="js/script.js"></script>
+	<script src="js/vendedores.js"></script>
+
+</body>
+</html>
