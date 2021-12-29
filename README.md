@@ -1,7 +1,7 @@
 <h1>LAYOUT ERP WEB</h1>
 
 Projeto Front-End criado para a empresa ASN Software. Nesse projeto foi desenvolvido um design inspirado em alguns outros exemplos de sistemas ERP WEB.
-Esse design foi transformado em conteúdo web responsivo através das seguintes tecnologias: HTML, CSS, Javascript e JQuery
+Esse design foi transformado em conteúdo web responsivo através das seguintes tecnologias: HTML, CSS, Javascript e JQuery.
 
 Algumas páginas, como a "painel.html", ficaram sem conteúdo por causa do escopo do próprio projeto. Tudo foi feito de acordo com as exigências da ASN
 Software.
